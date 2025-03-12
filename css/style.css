@@ -1,0 +1,175 @@
+/* This selector makes all text in the body element use Google font Poppins with Serif as a backup. It also sets a background image and background color. */
+body {
+    font-family: "Poppins", serif;
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
+}
+
+/* Selects all header elements to use display: flex. Uses flex-direction and align-items to match example*/
+header {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* This selector selects all of the links in the nav_links class to use flex as well as flex-direction:column to match the example */
+.nav_links {
+    display: flex;
+    flex-direction: column;
+}
+
+/* This styles all of the header elements that are direct children of the card class. It applies the necessary requirements from the rubric. */
+.card > header {
+    background: #288088;
+    border: solid 2px #45ADAD;
+    padding: 20px 0;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* This second selector continues to style the card class, removing extra white space beyond the curved corners as they are div tags in the card class. */
+div.card {
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    display:flex;
+}
+
+/* This keyframes segment establishes the beginning properties (opacity 0 and 25px wide) and moves to the end properties (opacity 1 and 475px) it is titled mymove. */
+@keyframes mymove {
+    from {
+        width: 25px;
+        opacity: 0
+    }
+    to {
+        width: 475px;
+        opacity: 1;
+    }
+}
+
+/* This selects the logo in the header and has it complete the mymove keyframes properties over a 5 second duration */
+header img {
+    animation: mymove 5s;
+}
+
+/* This selector uses the :visited pseudoclass so that links remain blue even after being clicked on */
+a:visited {
+    top:20px;
+    color: blue;
+    text-decoration-style: solid;
+}
+
+
+div.card {
+    display: flex;
+    flex: 0 0 450px;
+    align-items: stretch;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+/* 
+.card {
+    flex-basis: 450px;
+} */
+
+div.pricing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* This selector styles all images within the gallery class. It sets the required attributes as outlined in the rubric. */
+.gallery img {
+    border: 10px solid #50C7C7;
+    width: 300px;
+    margin: 10px 10px 10px 10px;
+}
+
+/* This selector styles the gallery class to match the example. It uses flex and flex-wrap to fit the content on one page and move images to the next row if necessary. The justify-content centers all of the content in the class. */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* This media query sets specific styles for viewports with a minimum width of 900px */
+@media screen and (min-width: 900px) {
+    /* This header selector uses flex row to align all items in a row, the space-between allows the items to be as far to the left and right as possible. */
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    /* This selects the navigation links class to use flex to align the items vertically centered, as well as putting them in a row. */
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    /* This selector sets the flex-basis using the flex property to allow for 0 stretching and for all cards to have a width of 275px */
+    div.card {
+        display: flex;
+        flex: 0 0 275px;
+    }
+
+    /* This selector chooses all children that are headers of the body class with the child selector. The pseudoclass is applied to only select the first header in the body. The position is sticky and placed at the top so that it is always visible at the top of the screen when scrolling. */
+    body > header:first-of-type {
+        position: sticky;
+        top: 0px;
+    }
+}
+
+/* This media query selects for all users who prefer reduced motion, it then selects the logo through header img and ensures that no animation is shown for these uers. */
+@media (prefers-reduced-motion) {
+    header img {
+        animation: none;
+    }
+}
+
+@media print {
+    body {
+        font-family: Arial, Helvetica;
+        background-image: none;
+    }
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    /* li.nav_item{
+       justify: space-between;
+    } */
+
+    nav li a {
+        align-content: space-evenly;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    div.pricing {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        justify-items: flex-end;
+        align-items: flex-end;
+    }
+
+    div.card {
+        display: flex;
+        border: solid 2px #45ADDD;
+        flex-basis: 325px;
+        flex-direction:column;
+    }
+
+    #gallery, .gallery {
+        visibility: hidden;
+    }
+
+    main ul li:nth-child(2)::after {
+        content: ' 👍';
+    }
+}
