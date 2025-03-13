@@ -58,19 +58,16 @@ a:visited {
     text-decoration-style: solid;
 }
 
-
+/* This allows the card div tags to use flex, while using the flex-basis property to set an initial width of 450px for each card. It stretches the items and uses flex-direction column and flex  wrap to match the example. */
 div.card {
     display: flex;
     flex: 0 0 450px;
-    align-items: stretch;
+    /* align-items: stretch; */
     flex-direction: column;
     flex-wrap: wrap;
 }
-/* 
-.card {
-    flex-basis: 450px;
-} */
 
+/* This modifies the pricing div tags to use flex and align them in the center, both vertically and horizontally. It uses wrap to match the example. */
 div.pricing {
     display: flex;
     align-items: center;
@@ -109,7 +106,7 @@ div.pricing {
 
     /* This selector sets the flex-basis using the flex property to allow for 0 stretching and for all cards to have a width of 275px */
     div.card {
-        display: flex;
+        /* display: flex; */
         flex: 0 0 275px;
     }
 
@@ -127,27 +124,27 @@ div.pricing {
     }
 }
 
+/* This media query sets up numerous specifications to be made when the website is to be printed. */
 @media print {
+    /* This sets all text in the body to use Arial, with helvetica as a backup font. It also removes the background image for printing efficiency.  */
     body {
         font-family: Arial, Helvetica;
         background-image: none;
     }
+
+    /* This next set of selectors focuses on modifying the navigation links. It changes them to use flex-direction row to match the example, as well as to be spaced evenly apart. The nav tag's width is set to 100 to span across the entire viewport with even space. */
     .nav_links {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
     }
-    /* li.nav_item{
-       justify: space-between;
-    } */
-
     nav li a {
         align-content: space-evenly;
     }
-
     nav {
         width: 100%;
     }
+
 
     div.pricing {
         display: flex;
@@ -165,10 +162,12 @@ div.pricing {
         flex-direction:column;
     }
 
+    /* This selects the gallery class and id to make it so that all photos and the header are not shown in the print view. */
     #gallery, .gallery {
-        visibility: hidden;
+        display: none;
     }
 
+    /* This selector selects the unordered list list tag, selecting the 2nd instance of each list item for the lists that appear on the cards. The ::after pseudoclass is used to place the emoji content after each selected list item. */
     main ul li:nth-child(2)::after {
         content: ' 👍';
     }
