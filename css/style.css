@@ -61,7 +61,7 @@ a:visited {
 /* This allows the card div tags to use flex, while using the flex-basis property to set an initial width of 450px for each card. It stretches the items and uses flex-direction column and flex  wrap to match the example. */
 div.card {
     display: flex;
-    flex: 0 0 450px;
+    flex-basis: 450px;
     /* align-items: stretch; */
     flex-direction: column;
     flex-wrap: wrap;
@@ -107,7 +107,7 @@ div.pricing {
     /* This selector sets the flex-basis using the flex property to allow for 0 stretching and for all cards to have a width of 275px */
     div.card {
         /* display: flex; */
-        flex: 0 0 275px;
+        flex-basis: 275px;
     }
 
     /* This selector chooses all children that are headers of the body class with the child selector. The pseudoclass is applied to only select the first header in the body. The position is sticky and placed at the top so that it is always visible at the top of the screen when scrolling. */
@@ -145,7 +145,7 @@ div.pricing {
         width: 100%;
     }
 
-
+/* This selecor selects the div tags with the pricing class to use flex. It does not wrap to match the example, and justify and align properties are used to match the example spacing. */
     div.pricing {
         display: flex;
         flex-direction: row;
@@ -155,6 +155,7 @@ div.pricing {
         align-items: flex-end;
     }
 
+    /* This selector selects the div tags with the card classes. It applies a border and uses flex to have a column direction, as well as a flex-basis of 325px to set an initial width. */
     div.card {
         display: flex;
         border: solid 2px #45ADDD;
